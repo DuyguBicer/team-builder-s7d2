@@ -19,17 +19,12 @@ export default function FormContainer(props) {
     setFormData(newState);
   };
 
-  const handleSubmit = (event) => {
+   const handleSubmit = (event) => {
     event.preventDefault();
-    axios
-      .post('https://reqres.in/api/users', formData)
-      .then((res) => {
-        addUser(res.data);
-        setFormData(initialValues);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    console.log('Form verisi:', formData);
+
+    addUser(formData); // sadece bu
+    setFormData(initialValues);
   };
 
   return (
